@@ -11,6 +11,7 @@ if($_SESSION['name']!='oasis')
 
 <?php
 include('connect.php');
+
   try{
 
     if(isset($_POST['std'])){
@@ -40,6 +41,7 @@ include('connect.php');
 <title>Online Attendance Management System 1.0</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/main.css">
+  
 <style type="text/css">
   form{
     font-size: 20px;
@@ -54,7 +56,9 @@ include('connect.php');
     color: black;
   }
 </style>
+  
 </head>
+  
 <body>
 
 <header>
@@ -120,6 +124,7 @@ include('connect.php');
   </div>
 
   <div class="content">
+    
     <h3>Add Teacher Information</h3>
     <?php if(isset($success_msg)) echo $success_msg; if(isset($error_msg)) echo $error_msg; ?>
 
