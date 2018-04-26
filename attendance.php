@@ -12,16 +12,26 @@ if($_SESSION['name']!='oasis')
 <?php
     include('connect.php');
     try{
+      
     if(isset($_POST['att'])){
-      $dp = date('Y-m-d');
-      $stat = mysql_query("insert into attendance(stat_id,st_status,stat_date) values('$_POST[stat_id]','$_POST[st_status]','$dp')");
-      $att_msg = "Attendance Recorded.";
+
+      foreach ($_POST['st_status'] as $i => $st_status) {
+        
+        $stat_id = $_POST['stat_id'][$i];
+        $dp = date('Y-m-d');
+        
+        $stat = mysql_query("insert into attendance(stat_id,st_status,stat_date) values('$stat_id','$st_status','$dp')");
+        
+        $att_msg = "Attendance Recorded.";
+      }
+
     }
   }
   catch(Execption $e){
     $error_msg = $e->$getMessage();
   }
  ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,8 +90,11 @@ if($_SESSION['name']!='oasis')
 
   <div class="content">
     <h3>Attendance of <?php echo date('Y-m-d'); ?></h3>
+
     <?php if(isset($att_msg)) echo $att_msg; if(isset($error_msg)) echo $error_msg; ?>
+    
     <form action="" method="post">
+    
     <table border="1">
       <tr>
         <th>Student ID</th>
@@ -94,13 +107,15 @@ if($_SESSION['name']!='oasis')
       </tr>
    <?php
      $i=0;
+     $radio = 0;
      $all_query = mysql_query("select * from students");
+
      while ($data = mysql_fetch_array($all_query)) {
        $i++;
      ?>
+
      <tr>
-       <td><?php echo $data['st_id']; ?></td>
-       <input type="hidden" name="stat_id" value="<?php echo $data['st_id']; ?>">
+       <td><?php echo $data['st_id']; ?> <input type="hidden" name="stat_id[]" value="<?php echo $data['st_id']; ?>"> </td>
        <td><?php echo $data['st_name']; ?></td>
        <td><?php echo $data['st_dept']; ?></td>
        <td><?php echo $data['st_batch']; ?></td>
@@ -108,16 +123,24 @@ if($_SESSION['name']!='oasis')
        <td><?php echo $data['st_email']; ?></td>
        <td>
          <label>Present</label>
-         <input type="radio" name="st_status" value="p" checked>
+         <input type="radio" name="st_status[<?php echo $radio; ?>]" value="p" checked>
          <label>Absent</label>
-         <input type="radio" name="st_status" value="a">
+         <input type="radio" name="st_status[<?php echo $radio; ?>]" value="a">
        </td>
      </tr>
-     <?php }  ?>
+
+     <?php
+
+        $radio++;
+      } 
+
+      ?>
     </table>
+
     <center><br>
     <button><input type="submit" name="att" value="Done"></button>
   </center>
+
 </form>
   </div>
 
