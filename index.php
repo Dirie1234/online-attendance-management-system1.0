@@ -39,7 +39,7 @@ if($_SESSION['name']!='oasis')
 
 <div class="row">
     <div class="content">
-      <p>One stop  solution for your class room :)</p>
+      <p>One stop  solution for your class room :blush:</p>
     <img src="img/tcr.png">
 
   </div>
