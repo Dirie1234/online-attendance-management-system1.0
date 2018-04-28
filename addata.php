@@ -11,7 +11,6 @@ if($_SESSION['name']!='oasis')
 
 <?php
 include('connect.php');
-
   try{
 
     if(isset($_POST['std'])){
@@ -22,7 +21,7 @@ include('connect.php');
 
         if(isset($_POST['tcr'])){
 
-      $res = mysql_query("insert into teachers(tc_id,tc_name,tc_dept,tc_email) values('$_POST[tc_id]','$_POST[tc_name]','$_POST[tc_dept]','$_POST[tc_email]')");
+      $res = mysql_query("insert into teachers(tc_id,tc_name,tc_dept,tc_email,tc_course) values('$_POST[tc_id]','$_POST[tc_name]','$_POST[tc_dept]','$_POST[tc_email]','$_POST[tc_course]')");
       $success_msg = "Information added successfully.";
     }
 
@@ -41,7 +40,6 @@ include('connect.php');
 <title>Online Attendance Management System 1.0</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/main.css">
-  
 <style type="text/css">
   form{
     font-size: 20px;
@@ -56,9 +54,7 @@ include('connect.php');
     color: black;
   }
 </style>
-  
 </head>
-  
 <body>
 
 <header>
@@ -124,9 +120,7 @@ include('connect.php');
   </div>
 
   <div class="content">
-    
     <h3>Add Teacher Information</h3>
-    <?php if(isset($success_msg)) echo $success_msg; if(isset($error_msg)) echo $error_msg; ?>
 
       <form action="" method="post">
           <table>
@@ -146,6 +140,10 @@ include('connect.php');
             <tr>
               <td>Email</td>
               <td><input type="text" name="tc_email"></td>
+            </tr>
+            <tr>
+              <td>Course</td>
+              <td><input type="text" name="tc_course"></td>
             </tr>
             <tr><td><br></td></tr>
             <tr>
