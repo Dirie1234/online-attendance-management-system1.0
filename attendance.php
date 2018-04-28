@@ -123,9 +123,9 @@ if($_SESSION['name']!='oasis')
        <td><?php echo $data['st_email']; ?></td>
        <td>
          <label>Present</label>
-         <input type="radio" name="st_status[<?php echo $radio; ?>]" value="p" checked>
+         <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Present" checked>
          <label>Absent</label>
-         <input type="radio" name="st_status[<?php echo $radio; ?>]" value="a">
+         <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Absent">
        </td>
      </tr>
 
