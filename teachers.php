@@ -64,6 +64,7 @@ if($_SESSION['name']!='oasis')
         <th>Name</th>
         <th>Department</th>
         <th>Email</th>
+        <th>Course</th>
       </tr>
       <?php
 
@@ -79,6 +80,7 @@ if($_SESSION['name']!='oasis')
             <td><?php echo $tcr_data['tc_name']; ?></td>
             <td><?php echo $tcr_data['tc_dept']; ?></td>
             <td><?php echo $tcr_data['tc_email']; ?></td>
+            <td><?php echo $tcr_data['tc_course']; ?></td>
           </tr>
           <?php } ?>
     </table>
