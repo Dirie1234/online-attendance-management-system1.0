@@ -1,9 +1,9 @@
 # Online Attendance Management System 1.0
 Online Attendance Management System 1.0 is developed in a simplified way in HTML, CSS, PHP and MySQL for course practice purpose :blush:
 ## Requirements
-  - PHP 5.3 or higher with MySQLi
-  - MySQL 5.6 or higher for spatial features in MySQL
-  - XAMPP or WAMP server for localhost
+  - PHP 5.3 or higher.
+  - MySQL 5.6 or higher for spatial features in MySQL.
+  - XAMPP or WAMP server for localhost.
 ## Insatllation
  - Intall the requirements, if you already have it then skip.
  - Download the source code and extract the source code to a web accessible folder.
